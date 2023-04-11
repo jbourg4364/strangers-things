@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import './Header.css';
 
 const Header = () => {
@@ -6,15 +7,17 @@ const Header = () => {
         <div id='header'>
             <h1>Stranger's Things</h1>
             <nav>
-                <ul>
-                    <li>Home</li>
-                    <li>Posts</li>
-                    <li>Profile</li>
-                    <li>Logout</li>
-                </ul>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/posts">Posts</NavLink>
+                <NavLink to="/profile">Profile</NavLink>
+                <NavLink to="/logout">Logout</NavLink>
+
             </nav>
         </div>
     )
 };
 
 export default Header;
+
+
