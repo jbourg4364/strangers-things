@@ -7,11 +7,11 @@ const Login = () => {
             <form id='login-container'>
                 <label>
                     Username
-                    <input type='text' name='username' />
+                    <input type='text' name='username' required />
                 </label>
                 <label>
                     Password
-                    <input type='text' name='password' />
+                    <input type='text' name='password' required />
                 </label>
                 <button>Login</button>
             </form>
