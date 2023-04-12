@@ -15,14 +15,17 @@ const Posts = ({posts, setPosts, isLoggedIn, user}) => {
     return (
         <>
             <h2>All Posts</h2>
+            <button>Add Post</button>
+            <button>Edit Post</button>
+            <button>Delete Post</button>
             {posts.map((post) => {
                 return (
                     <div className="post" key={post._id}>
                         <h2>{post.title}</h2>
                         <p>{post.description}</p>
-                        <p>{post.author.username}</p>
-                        <p>{post.location}</p>
-                        <p>{post.price}</p>
+                        <p>Posted By: {post.author.username}</p>
+                        <p>Location: {post.location}</p>
+                        <p>Price: {post.price}</p>
                         {post.willDeliver ? 
                         <>
                         <p>Delivery Available</p> 
