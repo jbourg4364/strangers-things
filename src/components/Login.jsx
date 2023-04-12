@@ -3,18 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {loginUser} from '../auth';
 import './Login.css';
 
-//to get fake user data for testing:
 
-// const fakeUser = {
-//     posts:[],
-//     messages: [],
-    
-// }
-// JSON.parse(fakeUser)
-// const fakeResposne = {
-
-// }
-// JSON.parse(fakeResponse)
 
 const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser}) => {
 

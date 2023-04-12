@@ -1,0 +1,27 @@
+#addpost-container {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    border: 5px black solid;
+    height: 800px;
+    margin-left: 75px;
+    margin-right: 75px;
+    border-radius: 1%;
+    box-shadow: 2px 2px 7px black;
+}
+
+#description {
+    display:flex;
+    flex-direction: column;
+}
+
+textarea {
+    border: 1px solid black;
+}
+
+/* #delivery >  {
+    display: flex;
+    flex-direction: row;
+} */

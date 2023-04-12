@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Header, Login, Home, Posts} from './index';
+import { Header, Login, Home, Posts, AddPost} from './index';
 
 
 const App = () => {
@@ -16,6 +16,7 @@ const App = () => {
                 <Route path='/' element={<Home user={user} />} />
                 <Route path='/login' element={<Login user={user} setUser={setUser} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
                 <Route path='/posts' element={<Posts posts={posts} setPosts={setPosts} />} />
+                <Route path='/addPost' element={<AddPost posts={posts} setPosts={setPosts}/>}/>
                 {/* <Route path='/register' element={<Register />} /> */}
             </Routes>
         </div>
