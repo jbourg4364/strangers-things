@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import { getPosts } from "../api";
+import "./Post.css";
 
 const Posts = ({posts, setPosts, isLoggedIn, user}) => {
    
@@ -7,19 +8,17 @@ const Posts = ({posts, setPosts, isLoggedIn, user}) => {
         const getAllPosts = async () => {
             const response = await getPosts();
             setPosts(response)
-            console.log(posts)
-            
         };
         getAllPosts();
     }, []);
 
     return (
         <>
-            <h1>hello from posts</h1>
+            <h2>All Posts</h2>
             {posts.map((post) => {
                 return (
-                    <div key={post._id}>
-                        <h1>{post.title}</h1>
+                    <div className="post" key={post._id}>
+                        <h2>{post.title}</h2>
                         <p>{post.description}</p>
                         <p>{post.author.username}</p>
                         <p>{post.location}</p>
