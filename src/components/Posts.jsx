@@ -23,13 +23,13 @@ const Posts = ({posts, setPosts, isLoggedIn, user}) => {
                         <p>{post.author.username}</p>
                         <p>{post.location}</p>
                         <p>{post.price}</p>
-                        {/* {post.willDeliver ? 
+                        {post.willDeliver ? 
                         <>
                         <p>Delivery Available</p> 
                         </>: 
                         <>
                         <p>Delivery Not Available</p>
-                        </>} */}{console.log(post.willDeliver)}
+                        </>}
                     </div>
                     )
                 
