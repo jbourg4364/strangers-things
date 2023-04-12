@@ -1,6 +1,8 @@
-const COHORT_NAME = '2303-FTB-ET-WEB-FT';
+// const COHORT_NAME = '2303-FTB-ET-WEB-FT';
+
 
 const BASE = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
+
 
 
 // const registerUser = async () => {
@@ -68,4 +70,5 @@ export const updatePost = async (postId, post, token) => {
     console.error(error);
     }
 };
+
 
