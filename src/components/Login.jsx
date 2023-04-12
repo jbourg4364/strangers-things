@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {loginUser} from '../auth'
-import './Login.css'
+import {loginUser} from '../auth';
+import './Login.css';
 
 //to get fake user data for testing:
 
