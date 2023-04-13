@@ -1,6 +1,4 @@
 const COHORT_NAME = '2303-FTB-ET-WEB-FT';
-
-
 const BASE = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
 const fakePosts = {
@@ -73,9 +71,8 @@ export const getPosts = async () => {
     try {
         // const response = await fetch(`${BASE}/posts`);
         // const data = await response.json();
-        //  const data = await fakePosts.json();
         // return (data.data.posts);
-        return (fakePosts.data.posts);
+        return(fakePosts.data.posts)
     } catch (error) {
     console.error(error);
     }
@@ -117,6 +114,9 @@ export const updatePost = async (postId, post, token) => {
     console.error(error);
     }
 };
+
+
+
 
 
 // const registerUser = async () => {

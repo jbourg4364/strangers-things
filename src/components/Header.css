@@ -1,4 +1,8 @@
+
+
+
 /* Header */
+
 #header {
     display: flex;
     width: 100vw;
@@ -21,14 +25,30 @@ nav a {
     letter-spacing: 1px;
 }
 
+
+li {
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 20px;
+
 nav a:hover {
     text-shadow: 2px 2px 5px white;
     font-size: 21px;
+
+}
+
+li:hover {
+    cursor: pointer;
+    text-shadow: 2px 2px 5px white;
+    font-weight: 800;
 }
 
 h1 {
     text-align: center;
     font-family: 'Tilt Prism', cursive;
+
+    letter-spacing: 1px;
+
     font-size: 40px;
 }
 
@@ -55,4 +75,5 @@ h1 {
         text-shadow: 2px 2px 5px white;
         font-size: 21px;
     }
+
 }

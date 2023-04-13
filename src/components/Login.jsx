@@ -3,18 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {loginUser} from '../auth';
 import './Login.css';
 
-//to get fake user data for testing:
 
-// const fakeUser = {
-//     posts:[],
-//     messages: [],
-    
-// }
-// JSON.parse(fakeUser)
-// const fakeResposne = {
-
-// }
-// JSON.parse(fakeResponse)
 
 const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser}) => {
 
@@ -41,21 +30,29 @@ const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser}) => {
         setPassword('');
         navigate('/me')
     }
-
+//set userobj to username and password, send it back to register + call registeruser 
 
     return (
         <div>
             <form onSubmit={handleSubmit} id='login-container'>
                 <label>
                     Username
+
+                    <input type='text' name='username' required />
+                </label>
+                <label>
+                    Password
+                    <input type='text' name='password' required />
+
                     <input type='text' name='username' value={username} onChange={(event) => setUsername(event.target.value)} required />
                 </label>
                 <label>
                     Password
                     <input type='text' name='password' value={password} onChange={(event) => setPassword(event.target.value)} required />
+
                 </label>
                 <button type="submit" onClick={handleSubmit}>Login</button>
-                <button>Register</button>
+                <button onClick={() => {<Register />}}>Register</button>
                 {/* add a register button to login - if its clicked then route to register */}
             </form>
         </div>
