@@ -18,7 +18,7 @@ const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser}) => {
         event.preventDefault();
         // make an api call
         const userToAuth = {user: {username, password}};
-        const data = loginUser(userToAuth);
+        const data = await loginUser(userToAuth);
         // create login user functin that we used above somewhere else
         // post to login function
         if (data.token) {
