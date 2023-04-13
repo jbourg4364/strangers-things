@@ -10,7 +10,7 @@ import "./Post.css";
             //add the edit and delete buttons to the post
 
 const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToken}) => {
-    setIsLoggedIn(true);
+    // setIsLoggedIn(true);
     useEffect(() => {
         const getAllPosts = async () => {
             const response = await getPosts();

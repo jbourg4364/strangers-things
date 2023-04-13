@@ -16,7 +16,7 @@ const App = () => {
 
     return (
         <div id='App'>
-            <Header />
+            <Header token={token} setToken={setToken} setIsLoggedIn={setIsLoggedIn}/>
             <Routes>
                 <Route path='/' element={<Home user={user} />} />
                 <Route path='/login' element={<Login user={user} setUser={setUser} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
