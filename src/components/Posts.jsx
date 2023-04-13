@@ -21,8 +21,8 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
     const navigate = useNavigate();
     return (
         <>
-           {isLoggedIn ? (
-            <>
+           
+            
            <h2>All Posts</h2>
            <div className="buttons">
                 <button onClick={() => {
@@ -51,14 +51,7 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
                    )
                
 
-           })} </>
-           ) : (
-            <>
-            <h2>Please Login To View Posts</h2>
-            <Login/> 
-            </>
-           )
-           } 
+           })} 
 
         </>
     )

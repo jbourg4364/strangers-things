@@ -1,21 +1,45 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, Navigate, useNavigate } from 'react-router-dom'
 import './Header.css';
 
-const Header = ({token, setToken, setIsLoggedIn}) => {
+
+
+
+const Header = ({token, setToken, isLoggedIn, setIsLoggedIn}) => {
+    const navigate = useNavigate();
+    
+ 
     return (
         <div id='header'>
             <h1>Stranger's Things</h1>
             <nav>
+                <>
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/login">Login</NavLink>
+                {/* <NavLink to="/login">Login</NavLink> */}
                 <NavLink to="/posts">Posts</NavLink>
                 <NavLink to="/profile">Profile</NavLink>
-                <button onClick={()=>{
+                </>
+                { isLoggedIn ?
+                (<button onClick={()=>{
+                    localStorage.removeItem('token');
                     setToken('');
                     setIsLoggedIn(false);
                     console.log(token);
-                }}>Logout</button>
+                    navigate('./login');
+                }}>Logout</button> )
+                :
+                (<button onClick={()=>{
+                    // if (token !== '') {
+                    //     // setIsLoggedIn(true);
+                    //     // console.log(token);
+                    //     navigate('./login');
+                    // } else {
+        
+                        navigate('./login');
+                    // }
+                }}>Login</button>
+                )
+                } 
 
             </nav>
         </div>

@@ -28,7 +28,7 @@ const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser}) => {
         }
         setUsername('');
         setPassword('');
-        navigate('/me')
+        navigate('/posts')
     }
 
     const handleRegister = async (event) => {
