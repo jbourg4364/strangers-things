@@ -1,6 +1,6 @@
+// import { AddPost } from "../components";
+
 const COHORT_NAME = '2303-FTB-ET-WEB-FT';
-
-
 const BASE = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
 
