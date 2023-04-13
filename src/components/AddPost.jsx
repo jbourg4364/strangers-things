@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import {Posts} from './index'
 import './AddPost.css';
+import { createNewPosts } from "../api";
 
 //must return an object that looks like this to be passed to createNewPost(newPost, token): 
 //CRUD OPPS P1 18:16
@@ -12,34 +13,44 @@ import './AddPost.css';
 //     willDeliver: boolean
 // }
 
-//this is my attempt at doing this ^ ...but it will need to be moved inside the component so it can access props
-const handleSubmit = () => {
-    const checkYes = document.getElementById('checkYes'); 
-    const checkNo = document.getElementById('checkNo');
-    // even though we dont use this ^ i wonder if we might if we decide to check if both checkboxes are !checked since they don't have a required value
-    let checkboxValue;
-
-    {checkYes.checked ? 
-        checkboxValue = true :
-        checkboxValue = false
-    }
-
-    const newPost = {
-        title: {title},
-        description: {description},
-        location: {location},
-        price: {price},
-        willDeliver: checkboxValue
-    }
-
-    return newPost
-}
-
 //createNewPost should be called when submit is clicked - button might need to be outside of form
 //CRUD OPPS P1 14:57
 
-const AddPost = ({posts, setPosts, title, setTitle, description, setDescription, location, setLocation, price, setPrice}) => {
+const AddPost = ({posts, setPosts, token}) => {
     
+    
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [location, setLocation] = useState('');
+    const [price, setPrice] = useState('');
+    // const [checkboxValue, setCheckboxValue] = useState('false');
+
+
+    //     const checkYes = document.getElementById('checkYes'); 
+    //     const checkNo = document.getElementById('checkNo');
+    //     // even though we dont use this ^ i wonder if we might if we decide to check if both checkboxes are !checked since they don't have a required value
+  
+    //     if (checkYes.checked) {
+    //         setCheckboxValue(true)
+    //     } else {
+    //         setCheckboxValue(false)        
+    //     }
+
+    const handleSubmit = () => {
+    
+        const newPost = {
+            title: {title},
+            description: {description},
+            location: {location},
+            price: {price},
+            willDeliver: true
+        }
+    
+        return newPost
+    }
+
+    // createNewPosts(newPost, token)
+
     return (
         <>
             <div>
@@ -62,20 +73,20 @@ const AddPost = ({posts, setPosts, title, setTitle, description, setDescription,
                         Price
                         <input type="text" name="price" id="price" placeholder="$0.00" onChange={(event) => setPrice(event.target.value)} required/>
                     </label>
-                    <label id="delivery" htmlFor=""> 
+                    {/* <label id="delivery" htmlFor=""> 
                         Will You Deliver?
                         <div id="checkboxes">
                             <div id="checkbox">
-                                <input  type="checkbox" name="" id="checkYes"/>
+                                <input  type="checkbox" name="" id="checkYes" onChange={() => setCheckboxValue(true)}/>
                                 <label htmlFor="">Yes</label>
                             </div>
                             <div id="checkbox">
-                                <input type="checkbox" name="" id="checkNo"/> 
+                                <input type="checkbox" name="" id="checkNo" onChange={() => setCheckboxValue(false)}/> 
                                 <label htmlFor="">No</label>
                             </div>
                         </div>
-                    </label>
-                    <button onClick={handleSubmit}>Submit</button>
+                    </label> */}
+                    <button onSubmit={createNewPosts(handleSubmit(), token)}>Submit</button>
                     {/*handleSubmit function above*/}
                 </form>
             </div>
