@@ -10,7 +10,7 @@ import "./Post.css";
             //add the edit and delete buttons to the post
 
 const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToken}) => {
-    setIsLoggedIn(true);
+    // setIsLoggedIn(true);
     useEffect(() => {
         const getAllPosts = async () => {
             const response = await getPosts();
@@ -21,8 +21,8 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
     const navigate = useNavigate();
     return (
         <>
-           {isLoggedIn ? (
-            <>
+           
+            
            <h2>All Posts</h2>
            <div className="buttons">
                 <button onClick={() => {
@@ -51,14 +51,7 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
                    )
                
 
-           })} </>
-           ) : (
-            <>
-            <h2>Please Login To View Posts</h2>
-            <Login/> 
-            </>
-           )
-           } 
+           })} 
 
         </>
     )
