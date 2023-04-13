@@ -30,6 +30,7 @@ li {
     margin-left: 8px;
     margin-right: 8px;
     font-size: 20px;
+}
 
 nav a:hover {
     text-shadow: 2px 2px 5px white;
