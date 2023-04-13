@@ -1,0 +1,52 @@
+form > h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    padding: 10px;
+    border-bottom:1px solid black;
+}
+
+form > button {
+    margin-bottom: 20px;
+}
+
+form > *{
+    padding: 10px;
+}
+
+form input {
+    text-align: center;
+}
+
+form#addpost {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    border: 5px black solid;
+    /* height: 800px; */
+    margin-left: 75px;
+    margin-right: 75px;
+    border-radius: 1%;
+    box-shadow: 2px 2px 7px black;
+}
+
+#description {
+    display:flex;
+    flex-direction: column;
+}
+
+textarea {
+    border: 1px solid black;
+}
+
+#checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+}
+
+#checkbox > input {
+    width: 50px;
+}
