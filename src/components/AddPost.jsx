@@ -3,16 +3,6 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import {Posts} from './index'
 import './AddPost.css';
 
-
-
-
-const AddPost = ({posts, setPosts, title, setTitle, location, setLocation, price, setPrice}) => {
-
-    return (
-        <>
-            <div>
-                <form action="/posts"  id='addpost-container'>
-
 //must return an object that looks like this to be passed to createNewPost(newPost, token): 
 //CRUD OPPS P1 18:16
 // newPost: {
@@ -55,7 +45,6 @@ const AddPost = ({posts, setPosts, title, setTitle, description, setDescription,
             <div>
                 {/* form action would be overwritten by submit button - submit will send name/value to server - any button in a form will be a submit button */}
                 <form action=""  id='addpost'> 
-
                     <h1>Create New Post</h1>
                     <label htmlFor=""> 
                         Title
@@ -63,26 +52,6 @@ const AddPost = ({posts, setPosts, title, setTitle, description, setDescription,
                     </label>
                     <label id="description" htmlFor=""> 
                         Item Description
-
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                    </label>
-                    <label htmlFor=""> 
-                        Location
-                        <input type="text" name="location" id="location" onChange={(event) => setLocation(event.target.value)} required/>
-                    </label>
-                    <label htmlFor=""> 
-                        Price
-                        <input type="text" name="price" id="price" onChange={(event) => setPrice(event.target.value)} required/>
-                    </label>
-                    <label id="delivery" htmlFor=""> 
-                        will You Deliver?
-                        <input type="checkbox" name="" id="" />
-                        <label htmlFor="">Yes</label>
-                        <input type="checkbox" name="" id="" />
-                        <label htmlFor="">No</label>
-                    </label>
-                    <button>Submit</button>
-
                         <textarea name="" id="" cols="30" rows="10" onChange={(event) => setDescription(event.target.value)}></textarea>
                     </label>
                     <label htmlFor=""> 
@@ -108,7 +77,6 @@ const AddPost = ({posts, setPosts, title, setTitle, description, setDescription,
                     </label>
                     <button onClick={handleSubmit}>Submit</button>
                     {/*handleSubmit function above*/}
-
                 </form>
             </div>
 
@@ -120,8 +88,4 @@ export default AddPost;
 
 
 //get button to onClick={() => populate state} and rerun Posts
-
-//also pass props in App
-
 //location - dont make it required - if its blank on submit then set location to  [ON REQUEST] - set value
-
