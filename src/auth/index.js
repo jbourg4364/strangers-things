@@ -29,7 +29,7 @@ export const loginUser = async (userObj) => {
     }
 }
 
-export const registerUser = async () => {
+export const registerUser = async (userObj) => {
     try {
       const response = await fetch(`${BASE_URL}/users/register`, {
         method: "POST",
@@ -37,10 +37,15 @@ export const registerUser = async () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user: {
-            username: 'admin',
-            password: 'admin'
-          }
+            // user: {
+            // username: 'admin',
+            // password: 'admin'
+            // }
+            //need to return this ^ from a function that collects the input from register (given as a param called userObj)
+            //see Login functional component for reference on how to do this ^ it should be very similar except for maybe token info
+            //login and register can be on one component and can share the same userObj...
+            //loginBttn onClick => loginUser()
+            //registerBttn onClick => registerUser()
         })
       });
       const result = await response.json();
