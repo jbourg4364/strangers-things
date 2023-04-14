@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import {Posts} from './index'
 import './AddPost.css';
+import { createNewPosts } from "../api";
 
 //must return an object that looks like this to be passed to createNewPost(newPost, token): 
 //CRUD OPPS P1 18:16
@@ -11,29 +12,6 @@ import './AddPost.css';
 //     price: '$00.00',
 //     willDeliver: boolean
 // }
-
-//this is my attempt at doing this ^ ...but it will need to be moved inside the component so it can access props
-const handleSubmit = () => {
-    const checkYes = document.getElementById('checkYes'); 
-    const checkNo = document.getElementById('checkNo');
-    // even though we dont use this ^ i wonder if we might if we decide to check if both checkboxes are !checked since they don't have a required value
-    let checkboxValue;
-
-    {checkYes.checked ? 
-        checkboxValue = true :
-        checkboxValue = false
-    }
-
-    const newPost = {
-        title: {title},
-        description: {description},
-        location: {location},
-        price: {price},
-        willDeliver: checkboxValue
-    }
-
-    return newPost
-}
 
 //createNewPost should be called when submit is clicked - button might need to be outside of form
 //CRUD OPPS P1 14:57
