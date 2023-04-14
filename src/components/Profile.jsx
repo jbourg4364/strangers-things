@@ -1,9 +1,15 @@
-// import React from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import "./Profile.css";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import "./Profile.css";
+import { myData } from '../auth'
 
 
-// const Login = () => {
+const Profile = async ({token}) => { 
+    // let variable = await myData(token)
+    // console.log(variable)
+    return(<h1>hello</h1>)
+
+}
 
 //     const [username, setUsername] = useState('');
 //     const [password, setPassword] = useState('');
@@ -33,4 +39,4 @@
 // </div>
 // }
 
-// export default Profile;
+export default Profile;
