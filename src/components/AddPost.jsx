@@ -23,7 +23,8 @@ const AddPost = ({posts, setPosts, token}) => {
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
     const [price, setPrice] = useState('');
-    // const [checkboxValue, setCheckboxValue] = useState('false');
+    const [willDeliver, setWillDeliver] = useState(false);
+    
 
 
     //     const checkYes = document.getElementById('checkYes'); 
@@ -36,26 +37,39 @@ const AddPost = ({posts, setPosts, token}) => {
     //         setCheckboxValue(false)        
     //     }
 
-    const handleSubmit = () => {
+
+
+    // const handleSubmit = () => {
+
     
-        const newPost = {
-            title: {title},
-            description: {description},
-            location: {location},
-            price: {price},
-            willDeliver: true
+        const post = {
+            title,
+            description,
+            location,
+            price,
+            willDeliver
         }
     
-        return newPost
-    }
+    //     return newPost
+    // }
 
+
+    const navigate = useNavigate();
     // createNewPosts(newPost, token)
 
+
+    const handleSubmit = async(event) => {
+        event.preventDefault();
+        const newPost = await createNewPosts(post, token);
+        setPosts([newPost.data, ...posts]);
+        console.log({posts})
+    }
+    
     return (
         <>
             <div>
                 {/* form action would be overwritten by submit button - submit will send name/value to server - any button in a form will be a submit button */}
-                <form action=""  id='addpost'> 
+                <form action="" onSubmit={handleSubmit} id='addpost'> 
                     <h1>Create New Post</h1>
                     <label htmlFor=""> 
                         Title
@@ -73,20 +87,20 @@ const AddPost = ({posts, setPosts, token}) => {
                         Price
                         <input type="text" name="price" id="price" placeholder="$0.00" onChange={(event) => setPrice(event.target.value)} required/>
                     </label>
-                    {/* <label id="delivery" htmlFor=""> 
+                    <label id="delivery" htmlFor=""> 
                         Will You Deliver?
                         <div id="checkboxes">
                             <div id="checkbox">
-                                <input  type="checkbox" name="" id="checkYes" onChange={() => setCheckboxValue(true)}/>
+                                <input  type="checkbox" name="" id="checkYes" onChange={(event) => setWillDeliver(event.target.checked)}/>
                                 <label htmlFor="">Yes</label>
                             </div>
-                            <div id="checkbox">
-                                <input type="checkbox" name="" id="checkNo" onChange={() => setCheckboxValue(false)}/> 
+                            {/* <div id="checkbox">
+                                <input type="checkbox" name="" id="checkNo" onChange={(event) => setCheckboxValue(event.target.checked)}/> 
                                 <label htmlFor="">No</label>
-                            </div>
+                            </div> */}
                         </div>
-                    </label> */}
-                    <button onSubmit={createNewPosts(handleSubmit(), token)}>Submit</button>
+                    </label>
+                    <button type="submit">Submit</button>
                     {/*handleSubmit function above*/}
                 </form>
             </div>
@@ -96,7 +110,7 @@ const AddPost = ({posts, setPosts, token}) => {
 }
 
 export default AddPost;
-
+//crud ops p2 20:45
 
 //get button to onClick={() => populate state} and rerun Posts
 //location - dont make it required - if its blank on submit then set location to  [ON REQUEST] - set value

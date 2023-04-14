@@ -75,13 +75,14 @@ export const getPosts = async () => {
         const data = await response.json();
         //  const data = await fakePosts.json();
         return (data.data.posts);
-        return (fakePosts.data.posts);
+        // return (fakePosts.data.posts);
     } catch (error) {
     console.error(error);
     }
 }; 
 
 export const createNewPosts = async (newPost, token) => {
+    console.log(newPost, token)
     try {
         const response = await fetch(`${BASE}/posts`, {
             method: 'POST',
@@ -89,7 +90,7 @@ export const createNewPosts = async (newPost, token) => {
                 "Content-type": "application/json; charset=UTF-8",
                 Authorization: `Bearer ${token}`
             },
-            body: JSON.stringify(newPost)
+            body: JSON.stringify({post: newPost})
         });
 
         const result = await response.json();
