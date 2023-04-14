@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Profile.css";
 import { myData } from '../auth'
 
+//the object error we were getting is because you cant make a component async but you can put an async function in a componenet which is what we need to do
+const Profile =  ({userData, setUserData, token}) => { 
+    
+    const getData = async (token) => {
+        try {
+            let fetchedData = await myData(token)
+            console.log(fetchedData);
+            setUserData(fetchedData.data);
+            // return fetchedData
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+    //getMe is done and posting to the page by CRUD OPS 18:37
+    useEffect(() => {
+        getData(token);
+    }, [])
 
-const Profile = async ({token}) => { 
-    // let variable = await myData(token)
-    // console.log(variable)
-    return(<h1>hello</h1>)
-
+    console.log({userData});
+    
+    return(
+    <>
+        <h1>hello this is your {token}</h1>
+    </>
+    )
+    
 }
 
 //     const [username, setUsername] = useState('');

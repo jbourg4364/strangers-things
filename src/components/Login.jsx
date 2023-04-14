@@ -16,12 +16,13 @@ const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser, usern
         // make an api call
         const userToAuth = {user: {username, password}};
         const data = await loginUser(userToAuth);
-        console.log(data);
+        // console.log(data);
         // create login user functin that we used above somewhere else
         // post to login function
         if (data.token) {
             setToken(data.token);
             setUser(data);
+            // console.log(data);
             setIsLoggedIn(true);
         }
         setUsername('');
