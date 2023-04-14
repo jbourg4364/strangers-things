@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Header, Login, Home, Posts, AddPost} from './index';
+import { Header, Login, Home, Posts, AddPost, Profile} from './index';
 
 
 const App = () => {
@@ -29,3 +29,5 @@ const App = () => {
 };
 
 export default App;
+
+
