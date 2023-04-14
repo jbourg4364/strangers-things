@@ -107,7 +107,7 @@ export const updatePost = async (postId, post, token) => {
             method: 'PUT',
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
-                //Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(post)
         });

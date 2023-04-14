@@ -17,7 +17,7 @@ const Header = ({token, setToken, isLoggedIn, setIsLoggedIn}) => {
                 <NavLink to="/profile">Profile</NavLink>
                 </>
                 { isLoggedIn ?
-                (<button onClick={()=>{
+                (<button style={{marginRight: 50, border: '2px solid white'}} onClick={()=>{
                     localStorage.removeItem('token');
                     setToken('');
                     setIsLoggedIn(false);
@@ -25,7 +25,13 @@ const Header = ({token, setToken, isLoggedIn, setIsLoggedIn}) => {
                     navigate('./login');
                 }}>Logout</button> )
                 :
-                (<button onClick={()=>{
+                (<button style={{marginRight: 50, border: '2px solid white'}} onClick={()=>{
+                    // if (token !== '') {
+                    //     // setIsLoggedIn(true);
+                    //     // console.log(token);
+                    //     navigate('./login');
+                    // } else {
+        
                         navigate('./login');
                 }}>Login</button>
                 )
