@@ -9,7 +9,8 @@ import "./Post.css";
         //if isAuthor 
             //add the edit and delete buttons to the post
 
-const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToken}) => {
+
+const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, username, token, setToken}) => {
     // setIsLoggedIn(true);
     useEffect(() => {
         const getAllPosts = async () => {
@@ -19,6 +20,7 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
         getAllPosts();
     }, []);
     const navigate = useNavigate();
+    console.log(username)
     return (
         <>
            <h2>All Posts</h2>
@@ -30,9 +32,9 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
                 <button>Delete Post</button>
            </div>
            {posts.map((post) => {
-            {
-                console.log(post, "post message");
-            }
+            // {
+            //     console.log(post, "post message");
+            // }
                return (
                 
                    <div className="post" key={post._id}>
@@ -48,6 +50,17 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
                        <>
                        <p>Delivery Not Available</p>
                        </>}
+
+                    {/* {(isLoggedIn && user.userName == post.author.username) ?(
+                
+                        <>
+                        <button>Edit Post</button>
+                        <button>Delete Post</button>
+                        </>
+                    ):
+                    console.log('error')
+                    } */}
+                    
                    </div>
                 )
            })} 
