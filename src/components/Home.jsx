@@ -4,7 +4,8 @@ const Home = ({user}) => {
     return (
         <>
             {/* {isLoggedIn ? hello {user.username} : please login} */}
-            <h1>hello from home</h1>
+            <h2>Welcome to Stranger's Things</h2>
+            <br></br>
         </>
     )
 }
