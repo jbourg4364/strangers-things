@@ -21,7 +21,7 @@ const App = () => {
                 <Route path='/' element={<Home user={user} />} />
                 <Route path='/login' element={<Login user={user} setUser={setUser} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
                 <Route path='/posts' element={<Posts posts={posts} setPosts={setPosts} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-                <Route path='/addPost' element={<AddPost posts={posts} setPosts={setPosts} />}/>
+                <Route path='/addPost' element={<AddPost user={user} posts={posts} setPosts={setPosts} token={token}/>}/>
                 {/* <Route path='/register' element={<Register />} /> */}
             </Routes>
         </div>
