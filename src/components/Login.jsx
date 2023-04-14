@@ -5,12 +5,9 @@ import './Login.css';
 
 
 
-const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser}) => {
+const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser, username, setUsername, password, setPassword}) => {
 
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    console.log(username);
     // see the username change in real time in the console if you type
     const navigate = useNavigate();
 
@@ -59,7 +56,7 @@ const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser}) => {
                 </label>
                 <label>
                     Password
-                    <input type='text' name='password' value={password} onChange={(event) => setPassword(event.target.value)} required />
+                    <input type='text' name='password' id='password'value={password} onChange={(event) => setPassword(event.target.value)} required />
                 </label>
                 <button type="submit" onClick={handleLogin}>Login</button>
                 <button onClick={handleRegister}>Register</button>
