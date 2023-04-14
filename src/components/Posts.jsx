@@ -65,3 +65,10 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
 }
 
 export default Posts;
+
+
+// Text Matcher
+    // Add within div 
+//       <form>
+//         <input type-"search"/>
+//      </form>>
