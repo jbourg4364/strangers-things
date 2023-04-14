@@ -3,8 +3,6 @@ import { NavLink, Navigate, useNavigate } from 'react-router-dom'
 import './Header.css';
 
 
-
-
 const Header = ({token, setToken, isLoggedIn, setIsLoggedIn}) => {
     const navigate = useNavigate();
     
@@ -15,7 +13,6 @@ const Header = ({token, setToken, isLoggedIn, setIsLoggedIn}) => {
             <nav>
                 <>
                 <NavLink to="/">Home</NavLink>
-                {/* <NavLink to="/login">Login</NavLink> */}
                 <NavLink to="/posts">Posts</NavLink>
                 <NavLink to="/profile">Profile</NavLink>
                 </>
@@ -29,14 +26,7 @@ const Header = ({token, setToken, isLoggedIn, setIsLoggedIn}) => {
                 }}>Logout</button> )
                 :
                 (<button onClick={()=>{
-                    // if (token !== '') {
-                    //     // setIsLoggedIn(true);
-                    //     // console.log(token);
-                    //     navigate('./login');
-                    // } else {
-        
                         navigate('./login');
-                    // }
                 }}>Login</button>
                 )
                 } 

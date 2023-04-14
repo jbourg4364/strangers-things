@@ -21,8 +21,6 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
     const navigate = useNavigate();
     return (
         <>
-           
-            
            <h2>All Posts</h2>
            <div className="buttons">
                 <button onClick={() => {
@@ -31,13 +29,16 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
                 <button>Edit Post</button>
                 <button>Delete Post</button>
            </div>
-           
            {posts.map((post) => {
+            {
+                console.log(post, "post message");
+            }
                return (
+                
                    <div className="post" key={post._id}>
                        <h2>{post.title}</h2>
                        <p>{post.description}</p>
-                       <p>Posted By: {post.author.username}</p>
+                       {/* <p>Posted By: {post.author.username}</p> */}
                        <p>Location: {post.location}</p>
                        <p>Price: {post.price}</p>
                        {post.willDeliver ? 
@@ -48,11 +49,8 @@ const Posts = ({posts, setPosts, isLoggedIn, setIsLoggedIn, user, token, setToke
                        <p>Delivery Not Available</p>
                        </>}
                    </div>
-                   )
-               
-
+                )
            })} 
-
         </>
     )
 }
