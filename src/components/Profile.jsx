@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Profile.css";
-import { myData } from '../auth'
+
 
 //the object error we were getting is because you cant make a component async but you can put an async function in a componenet which is what we need to do
-const Profile =  ({userData, setUserData, token}) => { 
+const Profile =  ({posts, userData, setUserData, token}) => { 
     
     const getData = async (token) => {
         try {
@@ -23,7 +23,7 @@ const Profile =  ({userData, setUserData, token}) => {
         getData(token);
     }, [])
 
-    console.log({userData});
+    // console.log({userData});
     
     return(
         <>
@@ -36,13 +36,11 @@ const Profile =  ({userData, setUserData, token}) => {
              <button>Edit Post</button>
              <button>Delete Post</button>
         </div>
-        {userData.posts.map((post) => {
-         // {
-         //     console.log(post, "post message");
-         // }
+        {posts.map((post) => {
+         
             return (
              
-                <div className="post" key={post._id}>
+                <div className="post" key={data.post._id}>
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
                     {/* <p>Posted By: {post.author.username}</p> */}
