@@ -15,7 +15,7 @@ export const loginUser = async (userObj) => {
         if (success) {
             const {token, message} = data;
             localStorage.setItem('token', token);
-            console.log(success, error, data);
+            // console.log(success, error, data);
             return {token, message};
         }
         if (!success && !error) {
@@ -70,9 +70,9 @@ export const registerUser = async (userObj) => {
           'Authorization': `Bearer ${token}`
         },
       });
-      const result = await response.json();
-      console.log(result);
-      return result
+      const {success, error, data } = await response.json();
+      // console.log({success, error, data });
+      return {success, error, data };
     } catch (err) {
       console.error(err);
     }
