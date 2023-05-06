@@ -26,7 +26,8 @@ const App = () => {
                 <Route path='/login' element={<Login user={user} setUser={setUser} token={token} setToken={setToken} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>} />
                 <Route path='/posts' element={<Posts posts={posts} setPosts={setPosts} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} user={user} username={username} setUsername={setUsername}/>} />
                 <Route path='/addPost' element={<AddPost user={user} posts={posts} setPosts={setPosts} token={token}/>}/>
-                <Route path='/me' element={<Profile userData={userData} setUserData={setUserData} token={token} posts={posts}/>} />
+                <Route path='/me' element={<Profile userData={userData} setUserData={setUserData} token={token} posts={posts} isLoggedIn={isLoggedIn}/>} />
+                <Route path='/profile' element={<Profile userData={userData} setUserData={setUserData} token={token} posts={posts} isLoggedIn={isLoggedIn}/>} />
             </Routes>
         </div>
     )
