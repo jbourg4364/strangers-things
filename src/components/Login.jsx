@@ -5,49 +5,52 @@ import './Login.css';
 
 
 
-const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser, username, setUsername, password, setPassword}) => {
+const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser}) => {
 
-
-    // see the username change in real time in the console if you type
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async (event) => {
         event.preventDefault();
         // make an api call
-        const userToAuth = {user: {username, password}};
-        const data = await loginUser(userToAuth);
-        // console.log(data);
-        // create login user functin that we used above somewhere else
+        const userToAuth = {username, password};
+        const data = await loginUser({user: userToAuth});
+        // create loginUser function that we used above somewhere else
         // post to login function
         if (data.token) {
+            console.log(data.token)
             setToken(data.token);
             setUser(data);
-            // console.log(data);
             setIsLoggedIn(true);
+            navigate('/me');
+            console.log(isLoggedIn)
         }
         setUsername('');
         setPassword('');
-        navigate('/me')
     }
 
     const handleRegister = async (event) => {
         event.preventDefault();
-        // make an api call
-        const userToAuth = {user: {username, password}};
-        const data = registerUser(userToAuth);
-        // create login user functin that we used above somewhere else
-        // post to login function
-        if (data.token) {
-            setToken(data.token);
-            setUser(data);
-            setIsLoggedIn(true);
+        const userToAuth = {username, password};
+        const data = await registerUser({user: userToAuth});
+      
+        if (data && data.token) { // Check if data and data.token are defined
+          setToken(data.token);
+          setUser(data);
+          setIsLoggedIn(true);
+          setUsername(data.username)
+          navigate('/me')
+        } else {
+          // Handle the case where data or data.token is undefined
+          console.error('Error registering user:', data);
+          // Display an error message or take other appropriate action
         }
+      
         setUsername('');
         setPassword('');
-        navigate('/me')
-    }
-//set userobj to username and password, send it back to register + call registeruser 
-
+      }
+      
     return (
         <div>
             <form id='login-container'>
@@ -57,11 +60,10 @@ const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser, usern
                 </label>
                 <label>
                     Password
-                    <input type='text' name='password' id='password'value={password} onChange={(event) => setPassword(event.target.value)} required />
+                    <input type='password' name='password' value={password} onChange={(event) => setPassword(event.target.value)} required />
                 </label>
                 <button type="submit" onClick={handleLogin}>Login</button>
                 <button onClick={handleRegister}>Register</button>
-                {/* add a register button to login - if its clicked then route to register */}
             </form>
         </div>
     )
