@@ -39,7 +39,7 @@ export const registerUser = async (userObj) => {
     });
     const { success, error, data } = await response.json();
     if (success) {
-      const token = data?.token; // Optional chaining operator
+      const token = data.token; // Optional chaining operator
       localStorage.setItem('token', token);
       console.log(success, error, data);
       return { token, message: data.message };

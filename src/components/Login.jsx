@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {loginUser, registerUser} from '../auth';
 import './Login.css';
@@ -18,9 +18,11 @@ const Login = ({isLoggedIn, setIsLoggedIn, token, setToken, user, setUser}) => {
         const data = await loginUser({user: userToAuth});
         // create loginUser function that we used above somewhere else
         // post to login function
+
+       
         if (data.token) {
             console.log(data.token)
-            setToken(data.token);
+            setToken(token);
             setUser(data);
             setIsLoggedIn(true);
             navigate('/me');
