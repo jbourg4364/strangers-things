@@ -15,25 +15,19 @@ const Header = ({token, setToken, isLoggedIn, setIsLoggedIn}) => {
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/posts">Posts</NavLink>
                 <NavLink to="/profile">Profile</NavLink>
-       
                 </>
                 { isLoggedIn ?
                 (<button style={{marginRight: 50, border: '2px solid white', width: '80px'}} onClick={()=>{
                     localStorage.removeItem('token');
-                    setToken(token);
+                    setToken(null);
                     setIsLoggedIn(false);
-                    console.log(token);
-                    navigate('./me');
+                    console.log(isLoggedIn);
+                    navigate('/me');
                 }}>Logout</button> )
                 :
                 (<button style={{marginRight: 50, border: '2px solid white', width: '80px'}} onClick={()=>{
-                    // if (token !== '') {
-                    //     // setIsLoggedIn(true);
-                    //     // console.log(token);
-                    //     navigate('./login');
-                    // } else {
-        
-                        navigate('./login');
+                    
+                    navigate('/login');
                 }}>Login</button>
                 )
                 } 
@@ -44,5 +38,6 @@ const Header = ({token, setToken, isLoggedIn, setIsLoggedIn}) => {
 };
 
 export default Header;
+
 
 
